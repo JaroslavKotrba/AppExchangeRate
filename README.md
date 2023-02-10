@@ -1,3 +1,3 @@
 # AppExchangeRate
 
-TO SEE THE OUTPUT: https://jaroslavkotrba.shinyapps.io/crypto
+TO SEE THE OUTPUT: https://jaroslavkotrba.shinyapps.io/exchangerate
