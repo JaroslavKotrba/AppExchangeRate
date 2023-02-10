@@ -10,6 +10,7 @@ ui <- fluidPage(
   br(),
   
   h3("Select ", code("foreign CURRENCY"), "from the box below:", style = "color: cornflowerblue"),
+  br(),
   
   sidebarLayout(
     sidebarPanel(
