@@ -94,9 +94,9 @@ server <- function(input, output) {
     library(plotly)
     g <- ggplot(data = dt, aes(x=ds, y=y)) +
       geom_line(col="cornflowerblue", lwd=0.5, aes(text = paste0("Date: ", as.Date(..x.., origin = "1970-01-01"),
-                                                                 "<br>Rate: ", round(..y.., 2), " ", FX))) +
+                                                                 "<br>Rate: ", round(..y.., 2), " CZK"))) +
       geom_smooth(method = "gam", col="red", lwd=0.5, se=FALSE, linetype = "dashed", aes(text = paste0("Date: ", as.Date(..x.., origin = "1970-01-01"),
-                                                                                                       "<br>Rate: ", round(..y.., 2), " ", FX))) +
+                                                                                                       "<br>Rate: ", round(..y.., 2), " CZK"))) +
       xlab("Time") +
       ylab("Rate") +
       scale_x_date(date_labels = "%Y-%b", date_breaks = input$breaks) +
