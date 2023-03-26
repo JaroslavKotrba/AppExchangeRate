@@ -6,6 +6,7 @@ library(plotly)
 
 # ui
 ui <- fluidPage(
+  tags$head(tags$link(rel="shortcut icon", href="https://p1.hiclipart.com/preview/35/55/823/euro-logo-currency-converter-exchange-rate-foreign-exchange-market-currency-symbol-eurusd-united-states-dollar-money-png-clipart.jpg")),
   title = "Fair Exchange Rate",
   br(),
   
