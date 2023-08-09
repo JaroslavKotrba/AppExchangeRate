@@ -21,6 +21,16 @@ server <- function(input, output) {
     NAME(input$select_currency)
   })
   
+  output$amount_czk <- renderText({
+    library(priceR)
+    FX_vs_CZK = historical_exchange_rates(from = input$select_currency, to = "CZK", start_date = Sys.Date(), end_date = Sys.Date()); FX_vs_CZK
+    
+    # FX to CZK
+    FX_vs_CZK = FX_vs_CZK[[2]]
+    
+    paste("1", input$select_currency, " = ", round(FX_vs_CZK, 2), "CZK")
+  })
+  
   output$fair_amount_fx <- renderText({
     library(priceR)
     CZK_vs_FX = historical_exchange_rates(from = "CZK", to = input$select_currency, start_date = Sys.Date(), end_date = Sys.Date()); CZK_vs_FX
