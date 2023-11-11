@@ -23,6 +23,8 @@ server <- function(input, output) {
   
   output$amount_czk <- renderText({
     library(priceR)
+    exchangerate = read.csv("api_exchangerate.txt")
+    Sys.setenv("EXCHANGERATEHOST_ACCESS_KEY" = exchangerate$api)
     FX_vs_CZK = historical_exchange_rates(from = input$select_currency, to = "CZK", start_date = Sys.Date(), end_date = Sys.Date()); FX_vs_CZK
     
     # FX to CZK
@@ -102,7 +104,7 @@ server <- function(input, output) {
     
     library(ggplot2)
     library(plotly)
-    g <- ggplot(data = dt, aes(x=ds, y=y)) +
+    g <- ggplot(data = dt, aes(x=as.Date(ds), y=y)) +
       geom_line(col="cornflowerblue", lwd=0.5, aes(text = paste0("Date: ", as.Date(..x.., origin = "1970-01-01"),
                                                                  "<br>Rate: ", round(..y.., 2), " CZK"))) +
       geom_smooth(method = "gam", col="red", lwd=0.5, se=FALSE, linetype = "dashed", aes(text = paste0("Date: ", as.Date(..x.., origin = "1970-01-01"),
